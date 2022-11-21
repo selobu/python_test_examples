@@ -14,7 +14,7 @@
 from math import sqrt, pow
 from numba import jit
 from time import time
-@jit()
+@jit("float32(int8,int8,int8, int8)")
 def distance(x1,y1,x2,y2):
     return sqrt(pow(x1-x2,2)+pow(y1-y2,2)) 
     
