@@ -20,8 +20,7 @@ def resolve(p):
     assert sum([r>1e7 for r in res])+sum([r<-1e7 for r in res]) == 0
     r1=[]
     for k in range(len(p)-1):
-        for j in range(k+1,len(p)):
-            r1.append(sqrt(pow(p[j][0]-p[k][0],2)+pow(p[j][1]-p[k][1],2)))
+        r1.append(min([sqrt(pow(p[j][0]-p[k][0],2)+pow(p[j][1]-p[k][1],2)) for j in range(k+1,len(p))]))
     return min(r1)
 
 #########################################################
