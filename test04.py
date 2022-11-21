@@ -21,9 +21,7 @@ def resolve(p):
     r1=[]
     for k in range(len(p)-1):
         for j in range(k+1,len(p)):
-            p1=p[k]
-            p2=p[j]
-            r1.append(sqrt(pow(p1[0]-p2[0],2)+pow(p1[1]-p2[1],2)))
+            r1.append(sqrt(pow(p[j][0]-p[k][0],2)+pow(p[j][1]-p[k][1],2)))
     return min(r1)
 
 #########################################################
