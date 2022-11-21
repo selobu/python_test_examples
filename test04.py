@@ -11,7 +11,7 @@
 # presicion < 1e-6
 # tiempo de ejecución como límite 5 sec
 # 
-from math import sqrt
+from math import sqrt, pow
 from time import time
 def resolve(p):
     assert len(p) < 2e4
@@ -23,7 +23,7 @@ def resolve(p):
         for j in range(k+1,len(p)):
             p1=p[k]
             p2=p[j]
-            r1.append(sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2))
+            r1.append(sqrt(pow(p1[0]-p2[0],2)+pow(p1[1]-p2[1],2)))
     return min(r1)
 
 #########################################################
