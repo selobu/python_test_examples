@@ -15,7 +15,7 @@ from math import dist
 from time import time
     
 def resolve(p):
-    assert len(p) < 2e4
+    assert len(p) <= 2e4
     res = [x for l in p for x in l] 
     assert len(res) == 2*len(p)
     assert sum([r>1e7 for r in res])+sum([r<-1e7 for r in res]) == 0
@@ -25,7 +25,7 @@ def resolve(p):
 ###############           test Zone             #########
 
 from random import randint
-p = [[randint(-1e7,1e7), randint(-1e7,1e7)] for i in range(5000)]
+p = [[randint(-1e7,1e7), randint(-1e7,1e7)] for i in range(20_000)]
 start = time()
 test1 = resolve(p)
 dt = time()-start
