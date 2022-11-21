@@ -15,12 +15,13 @@ from math import sqrt
 from time import time
 def resolve(p):
     assert len(p) < 2e4
+    res = [x for l in p for x in l] 
+    assert len(res) == 2*len(p)
     r1=[]
     for k in range(len(p)-1):
         for j in range(k+1,len(p)):
             p1=p[k]
             p2=p[j]
-            assert len(p1)==2 and len(p2) == 2
             assert abs(p1[0])<=1e7 and abs(p1[1]) <= 1e7
             assert abs(p2[0])<=1e7 and abs(p2[1]) <= 1e7
             r1.append(sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2))
