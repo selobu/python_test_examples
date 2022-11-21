@@ -11,19 +11,15 @@
 # presicion < 1e-6
 # tiempo de ejecución como límite 5 sec
 # 
-from math import sqrt, pow
-from numba import jit
+from math import dist
 from time import time
-@jit("float32(int8,int8,int8, int8)")
-def distance(x1,y1,x2,y2):
-    return sqrt(pow(x1-x2,2)+pow(y1-y2,2)) 
     
 def resolve(p):
     assert len(p) < 2e4
     res = [x for l in p for x in l] 
     assert len(res) == 2*len(p)
     assert sum([r>1e7 for r in res])+sum([r<-1e7 for r in res]) == 0
-    return min((min([ distance(*p[j],*p[k]) for j in range(k+1,len(p))]) for k in range(len(p)-1)))
+    return min((min([ dist(p[j],p[k]) for j in range(k+1,len(p))]) for k in range(len(p)-1)))
     
 #########################################################
 ###############           test Zone             #########
