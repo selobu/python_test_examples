@@ -16,7 +16,7 @@ constrains:
 * len p[i] = 2 all i
 * |p[i][j]| < 1e-7
 
-# Approaches:
+### Approaches:
 
 1. No optimization, checking algorithm correctness.
 2. Simplify len calculation.
