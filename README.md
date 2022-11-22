@@ -22,7 +22,7 @@ constrains:
 2. Simplify len calculation.
 3. simplify |p[i][j]| < 1e-7 calculation.
 4. Using math.pow function.
-5. Avoiding intermediate piont allocation.
+5. Avoiding intermediate point allocation.
 6. Computing min value by a cicle expressed in a single line.
 7. Using generator.
 8. Using numba and jit compiler.
