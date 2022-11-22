@@ -11,16 +11,16 @@
 # presicion < 1e-6
 # tiempo de ejecución como límite 5 sec
 # 
-from math import sqrt, pow
+from math import dist
 from time import time
 def resolve(p):
     assert len(p) < 2e4
     res = [x for l in p for x in l] 
     assert len(res) == 2*len(p)
     assert sum([r>1e7 for r in res])+sum([r<-1e7 for r in res]) == 0
-    r1=[]
+    r1=['']*(len(p)-1)
     for k in range(len(p)-1):
-        r1.append(min([sqrt(pow(p[j][0]-p[k][0],2)+pow(p[j][1]-p[k][1],2)) for j in range(k+1,len(p))]))
+        r1[k] = min([dist(p[j],p[k]) for j in range(k+1,len(p))])
     return min(r1)
 
 #########################################################
